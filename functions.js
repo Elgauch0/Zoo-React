@@ -1,15 +1,6 @@
- export async function sleep(s){
-    return new Promise(resolve=>setTimeout(resolve,s*1000))
-
-};
-
-
-
-
-
+// Fetching habitat data from API with error handling
 export async function getHabitats() {
     try {
-        
         const res = await fetch('https://127.0.0.1:8000/api/habitats');
         
         if (!res.ok) {
