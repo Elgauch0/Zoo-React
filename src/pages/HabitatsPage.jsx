@@ -1,9 +1,11 @@
 import {useState,useEffect} from 'react'
-import {Link} from 'react-router-dom'
-import desertImg from '../../public/HabitatImages/desert.jpg';
-import foretImg from '../../public/HabitatImages/foret.jpg';
-import jungleImg from '../../public/HabitatImages/jungle.jpg';
-import savaneImg from '../../public/HabitatImages/savane.jpg';
+import {Link,useLoaderData} from 'react-router-dom'
+import desertImg from '../assets/HabitatImages/desert.jpg'
+//import desertImg from '../assets/HabitatImages/desert.jpg';
+import foretImg from '../assets/HabitatImages/foret.jpg';
+import jungleImg from '../assets/HabitatImages/jungle.jpg';
+import savaneImg from '../assets/HabitatImages/savane.jpg';
+import { getHabitats } from '../../functions';
 
 
 const ImgMap={
@@ -12,20 +14,17 @@ const ImgMap={
   'Desert':desertImg,
   'Foret':foretImg
 }
-
-
-
-function HabitatsPage() {
-  const [habitats,setHabitats]= useState(null);
-  useEffect(()=>{
-  fetch('https://127.0.0.1:8000/api/habitats').then(res =>res.json()).then(data => {
-    setHabitats(data);
-    console.log(data);
+export function loader(){
+  return getHabitats();
   }
-  );
-},[]);
+
+
+
+function HabitatsPage(){
+  const  habitats = useLoaderData();
   
-///////////////
+  
+
 const habitatsElements = habitats?.map( habitat => {
   return (
       
@@ -53,5 +52,6 @@ return (
      </>
   )
 }
+
 
 export default HabitatsPage
