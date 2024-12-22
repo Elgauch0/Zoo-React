@@ -1,4 +1,4 @@
-// Fetching habitat data from API with error handling
+// Fetching habitat data 
 export async function getHabitats() {
     try {
         const res = await fetch('https://127.0.0.1:8000/api/habitats');
@@ -7,13 +7,13 @@ export async function getHabitats() {
             throw new Error(`Failed to fetch habitats with status ${res.status}`);
         }
 
-        // Ensure the response is in JSON format
+       
         const data = await res.json();
-        return data; // Return the habitat data
+        return data; 
 
     } catch (error) {
         console.error('Error while fetching habitats:', error);
-        // Return a structured error object with error message
+        
         return { error: error.message };
     }
 }
@@ -32,5 +32,14 @@ export async function loginEmploye(email, password) {
         
         const { token } = await res.json();
          return token; 
+
+
+         
     
+}
+export function getAnimals(){
+    fetch('https://127.0.0.1:8000/api/animals/')
+    .then(res=> res.json()).then(data =>data).catch(error=>console.error(error));
+
+
 }

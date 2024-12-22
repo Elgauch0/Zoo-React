@@ -1,4 +1,4 @@
-import { Form, useLoaderData, useActionData,useNavigation, } from 'react-router-dom';
+import { Form, useLoaderData, useActionData,useNavigation,redirect } from 'react-router';
 import { loginEmploye } from '../../functions';
 
 export async function action({ request }) {
@@ -9,7 +9,7 @@ export async function action({ request }) {
 
     const token = await loginEmploye(email, password);
     localStorage.setItem('token',token);
-   //return redirect('....'); 
+    return redirect('/dashbord'); 
      
   }catch(err ){
    return err.response;
