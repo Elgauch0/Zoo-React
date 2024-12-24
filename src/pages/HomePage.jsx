@@ -5,8 +5,11 @@
 
 
 export default function HomePage() {
+  localStorage.clear();
   return (
-    <h1>Hello From HomePage</h1>
+    <>
+    <h1>HomePage</h1>
+    </>
   )
 }
 

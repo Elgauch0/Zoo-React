@@ -1,4 +1,4 @@
-import { Outlet,NavLink } from "react-router-dom"
+import { Outlet,NavLink } from "react-router"
 import Header from "./Header"
 import Footer from "./Footer"
 

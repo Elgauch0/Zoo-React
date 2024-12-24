@@ -1,16 +1,9 @@
-import { useRouteError } from "react-router";
+import React from 'react'
 
 function ErrorPage() {
-    const error = useRouteError() || { message: 'Unknown Error' };
-   
-
-    return (
-        <>
-            <div>ErrorPage: there was an error</div>
-            <pre>{error.message}</pre>
-        </>
-    );
+  return (
+    <div>an Error Is occured</div>
+  )
 }
 
-export default ErrorPage;
-
+export default ErrorPage

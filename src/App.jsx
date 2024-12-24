@@ -9,7 +9,11 @@ import DetailHabitat from './pages/DetailHabitat';
 import PageNotFound from './pages/PageNotFound';
 import ErrorPage from './pages/ErrorPage';
 import HabitatsPageLayout from './components/HabitatsPageLayout';
-import Dashbord from './pages/Administration/Dashbord';
+import Dashbord,{loader as dashBordLoader} from './pages/Administration/Dashbord';
+import DashVet,{loader as dashVetLoader} from './pages/Administration/DashVet';
+import DashW,{loader as dashWloader} from './pages/Administration/DashW';
+
+
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -29,7 +33,21 @@ const router = createBrowserRouter(createRoutesFromElements(
 
      /**Direction */
      <Route path='connexion' element={<ConnexionPage />} loader={homeLoader} action={loginAction}/>
-     <Route path='dashbord' element ={<Dashbord />}/>
+
+  
+     
+     <Route path='dashbord' element ={<Dashbord />} loader={dashBordLoader}/>
+     
+
+    
+     <Route path='dashvet' element={<DashVet/>}  loader={dashVetLoader}/>
+     
+
+     
+      <Route path='dashw' element={<DashW/>} loader={dashWloader} />
+      
+     
+
 
 
 

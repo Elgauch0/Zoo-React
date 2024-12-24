@@ -1,15 +1,17 @@
-// Fetching habitat data 
-export async function getHabitats() {
-    try {
-        const res = await fetch('https://127.0.0.1:8000/api/habitats');
-        
-        if (!res.ok) {
-            throw new Error(`Failed to fetch habitats with status ${res.status}`);
-        }
+export function sleep(s){
+    return new Promise(resolve => setTimeout(resolve,s*1000));
+}
+ 
 
+
+
+
+
+export async  function getHabitats() {
+    try {
+        const promise =  fetch('https://127.0.0.1:8000/api/habitats').then(res => res.json());
        
-        const data = await res.json();
-        return data; 
+        return promise; 
 
     } catch (error) {
         console.error('Error while fetching habitats:', error);
