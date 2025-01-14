@@ -50,10 +50,10 @@ export default function ConnexionPage() {
         
         <Form method="post" replace>
           <div className="mb-6">
-            {/* Display message from loader */}
+            
             {message && <h3 className='bg-yellow-100 text-yellow-800 p-2 rounded'>{message}</h3>}
             
-            {/* Display error message from action */}
+            
             {error && <h3 className='bg-red-100 text-red-800 p-2 rounded'>{error}</h3>}
             
             <label htmlFor="name" className="block text-gray-800 font-bold">Email :</label>

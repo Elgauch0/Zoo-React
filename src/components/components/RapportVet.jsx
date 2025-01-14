@@ -1,14 +1,8 @@
+import React from 'react'
 
-
-function RapportVet(props) {
+function RapportVet() {
   return (
-
-
-    <div>
-        <h1>{props.name}</h1>
-        
-
-    </div>
+    <div>RapportVet</div>
   )
 }
 
