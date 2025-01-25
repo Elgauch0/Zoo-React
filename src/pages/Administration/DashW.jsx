@@ -3,8 +3,6 @@ import { redirect } from "react-router";
 export async function loader(){
    const role = localStorage.getItem('role');
    const jwtToken = localStorage.getItem('token');
-   console.log(jwtToken);
-   console.log(role);
   if(role !== 'employe'){
    return redirect('*')
   }

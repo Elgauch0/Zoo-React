@@ -8,10 +8,10 @@ import { Suspense } from 'react';
 
 
 const ImgMap={
-  'Jungle':jungleImg,
-  'Savane':savaneImg,
-  'Desert':desertImg,
-  'Foret':foretImg
+  'jungle':jungleImg,
+  'savane':savaneImg,
+  'desert':desertImg,
+  'foret':foretImg
 }
 export function loader(){
   return getHabitats()
@@ -19,6 +19,7 @@ export function loader(){
 
   function HabitatsPage(){
     const habitats = useLoaderData();
+    console.log(habitats);
     
 
    return (

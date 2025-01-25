@@ -9,7 +9,7 @@ export function loader(){
   return redirect('*')
  }
  try{ 
-  fetch('https://localhost:8000/api/users',{ 
+  fetch('https://localhost:8000/api/administration/admin/users',{ 
   method:'GET',
   headers: {
      'Content-Type': 'application/json',

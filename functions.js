@@ -9,7 +9,7 @@ export function sleep(s){
 
 export async  function getHabitats() {
     try {
-        const promise =  fetch('https://127.0.0.1:8000/api/habitats').then(res => res.json());
+        const promise =  fetch('https://127.0.0.1:8000/api/habitat').then(res => res.json());
        
         return promise; 
 
@@ -22,25 +22,30 @@ export async  function getHabitats() {
 
 // Employee login function with token retrieval and error handling
 export async function loginEmploye(email, password) {
-    
-        const res = await fetch('https://127.0.0.1:8000/api/login_check', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify({ username:email,password:password })
-        });
-        if(!res.ok){
-            throw 'Email/password not correct or server down';
-        }
+    try {
+      const res = await fetch('https://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: email, password: password }),
+      });
+  
+      
+      if (!res.ok) {
         
-        const { token } = await res.json();
-         return token; 
-
-
-         
-    
-}
+        const errorData = await res.json();
+        throw new Error(errorData.message || 'Email/password incorrect or server down');
+      }
+  
+     
+      const { token } = await res.json();
+      return token;
+    } catch (err) {
+      console.error('Erreur lors de la connexion :', err.message);
+      throw new Error(err.message || 'Une erreur s\'est produite. Veuillez réessayer.');
+    }
+  }
 export function getAnimals(){
-    fetch('https://127.0.0.1:8000/api/animals/')
+    fetch('https://127.0.0.1:8000/api/animal/')
     .then(res=> res.json()).then(data =>data).catch(error=>console.error(error));
 
 
